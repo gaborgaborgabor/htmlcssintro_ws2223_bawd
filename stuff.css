@@ -1,0 +1,184 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* { /**** effects all objects and childs */
+    box-sizing: border-box; /* this stops adding the padding to an object */
+}
+
+body {
+    margin: 5vw; /**** distance outside the body ****/
+    font-family: 'Noto Sans', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1rem;
+} /**** combining different DOM objects */
+
+
+
+
+
+
+.mainnavigation ul {
+    list-style:none;
+    margin: 0;
+    padding: 0;
+}
+
+.mainnavigation li {
+    display: inline-block;
+}
+
+.mainnavigation>ul li>ul  { /* sub nav level */
+    display: none;
+    padding-left: 2vw;
+   
+}
+.mainnavigation>ul li:hover>ul {
+    display: block;
+}
+
+
+
+/***************** EO General Rules *****************/
+
+.box {
+    width: 15vw;
+    height: 15vw;
+    border-radius:0.25vw;
+    box-shadow: 0 10px 20px 0 #949494;
+    background-color: orange;
+    transition-property: all;
+    transition-duration: 0.5s;
+ }
+
+ .box:hover {
+    transform: translate3d(0,-1vh,0) perspective(200px) rotateY(15deg) rotatex(15deg);
+    /* translate on x,y,z, perspective is distance to eyes, rotate on y axis */
+    box-shadow: 0 20px 20px 0 #949494;
+    transition-property: all;
+    transition-duration: 1s;
+ }
+
+
+ /******** Definition of a nice sample animation ****/
+ @keyframes spin1 { /**** the NAME of our first animation */
+    0% {
+        transform: translate3d(0,0,0) perspective(200px) rotateY(0deg) rotateX(0deg);
+    }
+    100% {
+        transform: translate3d(0,0,0) perspective(200px) rotateY(360deg) rotateX(180deg);
+    }
+ }
+
+ @keyframes jump1 { /**** the jump animation */
+    0% {
+        transform: translate3d(0,0,0);
+    }
+    100% {
+        transform: translate3d(0,-2vh,0);
+    }
+ }
+
+/********/
+
+.button {
+    z-index:2;
+}
+
+ .rotator {
+    font-size: 3vh;
+    width: 500px;
+    font-weight: bold;
+    animation-name: spin1;
+    animation-duration: 100s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+ }
+
+ .mother {
+    background-color: orange;
+    width:600px;
+    height:600px;
+    position: relative; 
+ }
+
+ .child1 {
+    background-color: green;
+    width:50px;
+    height:50px;
+    position: absolute; /*** depends on the highest parent, which is relative */
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+ }
+
+ .child2 {
+    background-color: red;
+    width:70px;
+    height:70px;
+    position: absolute; /*** depends on the highest parent, which is relative */
+    bottom: 0;
+    left: 0;
+  
+ }
+
+/* flexbox */
+/*
+https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+*/
+
+
+
+
+/***** Grids */
+
+body {
+    margin: 40px;
+  }
+  
+  .box {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+  }
+  
+  .box:nth-child(even) {
+    background-color: #ccc;
+    color: #000;
+  }
+  
+  .wrapper {
+    width: 600px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: 100px 100px 100px;
+    grid-auto-flow: column;
+  }
+
+
+  /*
+https://gridbyexample.com/examples/
+  */
